@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+  <h1 class="home-header">Posts by {{view.kwargs.username}}</h1>
+
+  {% for post in posts %}
+    <div class="content">
+      <h2 class="blog-title"><a class="h1-link" href="{% url 'post-detail' post.id%}">{{post.title}}</a></h2>
+      <img class="profile-img-home" src="{{post.author.profile.image.url}}" alt="profile-pic">
+      <p>by <strong><a href="{% url 'user-posts' post.author.username %}" class="author-link">{{post.author}}</a></strong> on <em>{{post.date_posted|date:"M d, Y"}}</em></p>
+      <p class="post-display">{{post.content|truncatewords:70}}</p>
+    </div>
+  {% endfor %}
+
+  <div class="pagin-btn">
+    {% if page_obj.has_previous %}
+      <a href="?page={{page_obj.previous_page_number}}" class="btn btn-lg btn-outline-secondary prev" role="button">Prev</a>
+    {% endif %}
+    {% if page_obj.has_next %}
+      <a href="?page={{page_obj.next_page_number}}" class="btn btn-lg btn-outline-secondary nxt" role="button">Next</a>
+    {% endif %}
+  </div>
+
+{% endblock content %}

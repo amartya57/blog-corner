@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<h2>You have been logged out successfully</h2>
+
+<div class="border-top pt-3 log-in">
+  <small class="text-muted">
+    Log in to another account <a class="ml-auto" href="{% url 'login' %}">Log In</a>
+  </small>
+  <br>
+  <small class="text-muted">
+    Need an account ? <a class="ml-auto" href="{% url 'user-register' %}">Sign Up</a>
+  </small>
+</div>
+
+{% endblock content %}
