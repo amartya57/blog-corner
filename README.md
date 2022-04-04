@@ -1,3 +1,3 @@
 # blog-corner
 
-URL : blog-corner.herokuapp.cpm
+URL : blog-corner.herokuapp.com
